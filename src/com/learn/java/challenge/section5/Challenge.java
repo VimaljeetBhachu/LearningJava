@@ -7,7 +7,8 @@ public class Challenge {
 		Challenge challenge = new Challenge();
 //		checkNumber(1);
 //		printConversion(25.42);
-		printMegaBytesAndKiloBytes(5000);
+//		printMegaBytesAndKiloBytes(5000);
+		System.out.println(shouldWakeUp(false, 2));
 	}
 	
 	public static void checkNumber(int number) {
@@ -43,5 +44,12 @@ public class Challenge {
 			System.out.println(kiloBytes + " KB = " + megaBytes + " MB and " + remainingKiloBytes + " KB");
 		}
 		
+	}
+	
+	public static boolean shouldWakeUp(boolean barking, int hourOfDay ) {
+		if(0 <= hourOfDay && hourOfDay <= 23 && barking == true) {
+			if(hourOfDay < 8 || hourOfDay > 22) return true;
+		}
+		return false;
 	}
 }
