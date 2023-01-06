@@ -6,7 +6,8 @@ public class Challenge {
 		// TODO Auto-generated method stub
 		Challenge challenge = new Challenge();
 //		checkNumber(1);
-		printConversion(25.42);
+//		printConversion(25.42);
+		printMegaBytesAndKiloBytes(5000);
 	}
 	
 	public static void checkNumber(int number) {
@@ -27,5 +28,20 @@ public class Challenge {
 	public static void printConversion(double kilometersPerHour) {
 		if(toMilesPerHour(kilometersPerHour) == -1) System.out.println("Invalid Value");
 		else System.out.println(kilometersPerHour + " km/h = " + toMilesPerHour(kilometersPerHour) + " mi/h");
+	}
+	
+	public static void printMegaBytesAndKiloBytes(int kiloBytes) {
+
+		if(kiloBytes < 0) System.out.println("Invalid Value");
+		else {
+			int megaBytes = kiloBytes/1000;
+			long remainingKiloBytes = kiloBytes - ((megaBytes*1000) + (megaBytes*24));
+			if(remainingKiloBytes<0) {
+				megaBytes -= 1;
+				remainingKiloBytes = 1024 - Math.abs(remainingKiloBytes);
+			}
+			System.out.println(kiloBytes + " KB = " + megaBytes + " MB and " + remainingKiloBytes + " KB");
+		}
+		
 	}
 }
